@@ -1,0 +1,77 @@
+*****************************************
+
+Container Views
+    -What is a container view?
+      - A container view is a listing view in mobile dev that contain similar data sets and views
+
+In Android we have 2 different types:
+
+    - ListView
+        - This is the original view for Android
+        - Uses Eager loading of items (loads all items in list at the same time)
+        - Generally uses an array adapter to control the rending and population of the data in
+          the listview
+        - only allow for vertical scrolling by default.
+        - ItemClickListener is supplied by default
+        - User defines what design pattern to use to handle views
+
+      ( If an activity goes unresponsive for more than 5 seconds or a Broadcast Receiver doesn't
+         finish reception of broadcasts in 10 seconds, the system will fire off an ANR)
+
+         ANR - Application Non-Responsive
+
+*********************************************
+
+    - RecyclerView
+        - Optimized form of List View
+        - Newer
+        - Uses Lazy loading
+            - Will only render enough items to fit on screen + 2 items top or bottom
+
+        - RecyclerView Adapter
+            - 1 Internal Call
+                - View Holder  (internal class)
+                    - design pattern
+                    - holds the group of views to be used with that item
+            - 3 Fucntions that MUST be overridden
+                - onCreateViewHolder
+                    - Creates the item and renders it into memory
+                - onBindViewHolder
+                    - binds that view holder to the list
+                    - we will populate data to the item
+                - getItemCount
+                    - keeps track of how many items are in the list
+            -Uses LAYOUT MANAGERS to decide how swiping is going to happen and how they render
+               items.
+                   - Vertical
+                   - Horizontal
+                   - Grid
+            - We can also customize how each item is separated in the list.
+                    - ItemDecorators
+                        - Default
+                        - Can make custom as well
+            - Doesn't include an ItemClickListener by default
+                   - Swiping and other gestures for the RecyclerView items can be controlled
+                   and accessed via the item touch helper.
+
+    (3'rd party dependency)
+
+
+
+    ************************************************
+
+  LateInit vs Lazy Initialization
+
+    - lateInit is used for ars
+        -to check if initialization has occurred you can use the following code:
+            if(::var.isInitialized){}
+    - lazy initialization is used by vals
+    - lateinit is a promise from the developer that the var wil be initialized before use
+    - lazy initialization requires that the initialization code is supplied but not defined.
+
+    ****************************************
+
+    ScrollView
+
+      - Smooth scrolling
+
