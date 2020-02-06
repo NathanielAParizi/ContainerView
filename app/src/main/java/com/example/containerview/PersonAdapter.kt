@@ -48,4 +48,6 @@ class PersonAdapter(private val personList: ArrayList<Person>) :
         holder.populateItem(personList[position])
     }
 
+    
+
 }
